@@ -58,7 +58,7 @@ public class NewTransactionController extends HttpServlet {
         String amountStr = request.getParameter("amount");
         String transferAccountNumberStr = request.getParameter("transferaccount_number");
 
-        // Initialize default values
+        
         long selectedAccountNumber = 0;
         double amount = 0.0;
         long transferAccountNumber = 0;
@@ -73,7 +73,7 @@ public class NewTransactionController extends HttpServlet {
 
         BankAccountOperator operator = new BankAccountOperator();
         
-        // Validate and parse account number
+        
         if (selectedAccountNumberStr != null && !selectedAccountNumberStr.trim().isEmpty()) {
             try {
                 selectedAccountNumber = Long.parseLong(selectedAccountNumberStr);
@@ -88,7 +88,7 @@ public class NewTransactionController extends HttpServlet {
             return;
         }
 
-        // Validate and parse amount
+        
         if (amountStr != null && !amountStr.trim().isEmpty()) {
             try {
                 amount = Double.parseDouble(amountStr);
@@ -103,7 +103,7 @@ public class NewTransactionController extends HttpServlet {
             return;
         }
 
-        // Validate and parse transfer account number
+        
         if (transactionType != null && "transfer".equals(transactionType) && transferAccountNumberStr != null && !transferAccountNumberStr.trim().isEmpty()) {
             try {
                 transferAccountNumber = Long.parseLong(transferAccountNumberStr);
